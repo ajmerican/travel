@@ -1,0 +1,97 @@
+<?php
+	include_once(VIEWS_PATH.DS.'head.html');
+
+	$conroller	= App::getRouter()->getController();
+	$path		= UPLOAD_PATH.DS.$conroller.DS;
+?>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<form class="form-horizontal form-row-seperated ankforms" action="" method="post" enctype="multipart/form-data">
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>
+						<?php
+							if($data['var']['id'] > 0) {
+								echo 'Edit '.$data['var']['code'];
+							} else {
+								echo 'New Coupon';
+							}
+						?>
+					</div>
+					<div class="actions btn-set">
+						<a href="<?php echo Router::link('coupon'); ?>" name="back" class="btn btn-secondary-outline"><i class="fa fa-angle-left"></i> Back</a>
+						<button type="reset" class="btn btn-secondary-outline">
+							<i class="fa fa-reply"></i> Reset</button>
+						<button type="submit" class="btn btn-success" name="savebtn">
+							<i class="fa fa-check"></i> Save</button>
+						<button type="submit" class="btn btn-success" name="savecontbtn">
+							<i class="fa fa-check-circle"></i> Save & Continue Edit</button>
+						<?php if($data['var']['id'] > 0) { ?>
+						<a href="<?php echo Router::link('coupon/delete/'.$data['var']['id']); ?>" name="Delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-trash"></i> Delete</a>
+						<?php } ?>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="tabbable-bordered">
+						<div class="tab-content">
+							<input type="hidden" name="id" value="<?php echo $data['var']['id']; ?>" />
+							<div class="tab-pane active" id="tab_general">
+								<div class="form-body">
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button> You have some form errors. Please check below.
+									</div>
+                                    <div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button> Your form validation is successful!
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Code:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="code" value="<?php echo $data['var']['code']; ?>" maxlength="100" placeholder="Code">
+										</div>
+										<label class="col-md-2 control-label">Value:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="value" value="<?php echo $data['var']['value']; ?>" maxlength="100" placeholder="Value">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Start:</label>
+										<div class="col-md-4">
+											<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+												<input type="text" class="form-control" readonly name="startdate" id="startdate" value="<?php echo $data['var']['startdate']; ?>" />
+												<span class="input-group-btn">
+													<button class="btn default" type="button">
+														<i class="fa fa-calendar"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+										<label class="col-md-2 control-label">End:</label>
+										<div class="col-md-4">
+											<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+												<input type="text" class="form-control" readonly name="expirationdate" id="expirationdate" value="<?php echo $data['var']['expirationdate']; ?>" />
+												<span class="input-group-btn">
+													<button class="btn default" type="button">
+														<i class="fa fa-calendar"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Maximum Uses:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="maxuses" value="<?php echo $data['var']['maxuses']; ?>" maxlength="100" placeholder="Maxuses">
+										</div>
+										<label class="col-md-2 control-label">Total Uses:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" disabled name="uses" value="<?php echo $data['var']['uses']; ?>" maxlength="100" placeholder="Uses">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

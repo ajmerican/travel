@@ -1,0 +1,24 @@
+<li class="nav-item<?php if(App::getRouter()->getController() == 'payment_gateway') { ?> active open<?php } ?>">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-user"></i>
+                                <span class="title">Payment Gateway</span>
+								<?php if(App::getRouter()->getController() == 'payment_gateway') { ?><span class="selected"></span><?php } ?>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+								<li class="nav-item<?php if(App::getRouter()->getController() == 'payment_gateway' && App::getRouter()->getAction() == 'index') { ?> active open<?php } ?>">
+                                    <a href="<?php echo Router::link('payment_gateway'); ?>" class="nav-link ">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Payment Gateway List</span>
+										<?php if(App::getRouter()->getController() == 'payment_gateway' && App::getRouter()->getAction() == 'index') { ?><span class="selected"></span><?php } ?>
+                                    </a>
+                                </li>
+                                <li class="nav-item<?php if(App::getRouter()->getController() == 'payment_gateway' && App::getRouter()->getAction() == 'add') { ?> active open<?php } ?>">
+                                    <a href="<?php echo Router::link('payment_gateway/add'); ?>" class="nav-link ">
+                                        <i class="icon-user"></i>
+                                        <span class="title">New Payment Gateway</span>
+										<?php if(App::getRouter()->getController() == 'payment_gateway' && App::getRouter()->getAction() == 'add') { ?><span class="selected"></span><?php } ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>

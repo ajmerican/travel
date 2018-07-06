@@ -1,0 +1,24 @@
+<li class="nav-item<?php if(App::getRouter()->getController() == 'special_offer') { ?> active open<?php } ?>">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-user"></i>
+                                <span class="title">Special Offer</span>
+								<?php if(App::getRouter()->getController() == 'special_offer') { ?><span class="selected"></span><?php } ?>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+								<li class="nav-item<?php if(App::getRouter()->getController() == 'special_offer' && App::getRouter()->getAction() == 'index') { ?> active open<?php } ?>">
+                                    <a href="<?php echo Router::link('special_offer'); ?>" class="nav-link ">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Special Offer List</span>
+										<?php if(App::getRouter()->getController() == 'special_offer' && App::getRouter()->getAction() == 'index') { ?><span class="selected"></span><?php } ?>
+                                    </a>
+                                </li>
+                                <li class="nav-item<?php if(App::getRouter()->getController() == 'special_offer' && App::getRouter()->getAction() == 'add') { ?> active open<?php } ?>">
+                                    <a href="<?php echo Router::link('special_offer/add'); ?>" class="nav-link ">
+                                        <i class="icon-user"></i>
+                                        <span class="title">New Special Offer</span>
+										<?php if(App::getRouter()->getController() == 'special_offer' && App::getRouter()->getAction() == 'add') { ?><span class="selected"></span><?php } ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>

@@ -1,0 +1,65 @@
+<?php include_once(VIEWS_PATH.DS.'head.html'); ?>
+<!-- Main content -->
+<section class="content">
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Category</h3>
+			<div class="box-tools pull-right">
+          <a class="btn btn-sm btn-primary btn-flat" href="<?php echo Router::link('categorys/add'); ?>"><i class="fa fa-plus"></i> Add New</a>
+			</div>
+		</div>
+		<div class="box-body">
+			<?php
+				if(!isset($data['var']['records']) || count($data['var']['records']) <= 0){
+			?>
+				<div class="callout callout-danger">
+          <h4>Records not found!</h4>
+        </div>
+			<?php
+				} else {
+			?>
+			<table id="default-table" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th class="min-tablet">ID</th>
+								<th class="desktop">Name</th><th class="desktop">Details</th>
+								<th class="all" width="95px">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								foreach($data['var']['records'] AS $key => $val){
+								?>
+									<tr>
+										<td><?php echo $val['id']; ?></td>
+										<td><?php echo $val['name']; ?></td><td><?php echo $val['details']; ?></td>
+										<td>
+											<div class="btn-group">
+			                  <button type="button" class="btn btn-xs btn-warning btn-flat">Action</button>
+			                  <button type="button" class="btn btn-xs btn-warning btn-flat dropdown-toggle" data-toggle="dropdown">
+			                    <span class="caret"></span>
+			                    <span class="sr-only">Toggle Dropdown</span>
+			                  </button>
+			                  <ul class="dropdown-menu" role="menu">
+			                    <li>
+														<a href="<?php echo Router::link('categorys/add/'.$val['id']); ?>">
+														<i class="fa fa-pencil"></i> Edit </a></li>
+			                    <li>
+														<a href="<?php echo Router::link('categorys/delete/'.$val['id']); ?>" onclick="return confirm('Are you sure to delete?');">
+														<i class="fa fa-trash"></i> Delete </a></li>
+			                  </ul>
+			                </div>
+										</td>
+									</tr>
+								<?php
+								}
+							?>
+						</tbody>
+					</table>
+				<?php } ?>
+			</div>
+		</div>
+		<!-- END EXAMPLE TABLE PORTLET-->
+	</div>
+</div>

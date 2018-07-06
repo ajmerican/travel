@@ -1,0 +1,75 @@
+<?php include_once(VIEWS_PATH.DS.'head.html'); ?>
+<!-- Main content -->
+<section class="content">
+
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Bookings</h3>
+		</div>
+		<div class="box-body">
+			<?php
+				if(!isset($data['var']['records']) || count($data['var']['records']) <= 0){
+			?>
+				<div class="callout callout-danger">
+          <h4>Records not found!</h4>
+        </div>
+			<?php
+				} else {
+			?>
+			<table id="default-table" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th class="min-tablet">ID</th>
+						<th class="desktop">Booking</th>
+						<th class="desktop">Date</th>
+						<th class="desktop">Departure time</th>
+						<th class="desktop">Arrival time</th>
+						<th class="all">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						foreach($data['var']['records'] AS $key => $val){
+						?>
+							<tr>
+								<td><?php echo $val['id']; ?></td>
+								<td>
+									<?php
+										if(isset($val['hotel_name']) && $val['hotel_name'] != '') {
+											echo 'Hotel -> '.$val['hotel_name'];
+										} else {
+											echo 'Air -> '.$val['from_city'].' - '.$val['to_city'];
+										}
+									?>
+								</td>
+								<td><?php echo $val['date']; ?></td>
+								<td><?php echo $val['time_from']; ?></td>
+								<td><?php echo $val['time_to']; ?></td>
+								<td>
+									<div class="btn-group">
+	                  <button type="button" class="btn btn-xs btn-warning btn-flat">Action</button>
+	                  <button type="button" class="btn btn-xs btn-warning btn-flat dropdown-toggle" data-toggle="dropdown">
+	                    <span class="caret"></span>
+	                    <span class="sr-only">Toggle Dropdown</span>
+	                  </button>
+	                  <ul class="dropdown-menu" role="menu">
+	                    <li><a href="<?php echo Router::link('booking/view/'.$val['id']); ?>">
+												<i class="fa fa-eye"></i> View </a></li>
+	                    <!--<li><a href="<?php echo Router::link('user/delete/'.$val['user_id']); ?>" onclick="return confirm('Are you sure to delete?');">
+												<i class="fa fa-trash"></i> Delete </a></li>-->
+	                  </ul>
+	                </div>
+								</td>
+							</tr>
+						<?php
+							}
+						?>
+					</tbody>
+				</table>
+			<?php } ?>
+		</div>
+	</div>
+	<!-- /.box -->
+</section>
+<!-- /.content -->

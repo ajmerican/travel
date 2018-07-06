@@ -1,0 +1,252 @@
+<?php
+	include_once(VIEWS_PATH.DS.'head.html');
+
+	$conroller	= App::getRouter()->getController();
+	$path		= UPLOAD_PATH.DS.$conroller.DS;
+?>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<form class="form-horizontal form-row-seperated ankforms" action="" method="post" enctype="multipart/form-data">
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>
+						<?php
+							if($data['var']['id'] > 0) {
+								echo 'Edit '.$data['var']['title'];
+							} else {
+								echo 'New Hotel';
+							}
+						?>
+					</div>
+					<div class="actions btn-set">
+						<a href="<?php echo Router::link('hotel'); ?>" name="back" class="btn btn-secondary-outline"><i class="fa fa-angle-left"></i> Back</a>
+						<button type="reset" class="btn btn-secondary-outline">
+							<i class="fa fa-reply"></i> Reset</button>
+						<button type="submit" class="btn btn-success" name="savebtn">
+							<i class="fa fa-check"></i> Save</button>
+						<button type="submit" class="btn btn-success" name="savecontbtn">
+							<i class="fa fa-check-circle"></i> Save & Continue Edit</button>
+						<?php if($data['var']['id'] > 0) { ?>
+						<a href="<?php echo Router::link('hotel/delete/'.$data['var']['id']); ?>" name="Delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-trash"></i> Delete</a>
+						<?php } ?>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="tabbable-bordered">
+						<div class="tab-content">
+							<input type="hidden" name="id" value="<?php echo $data['var']['id']; ?>" />
+							<div class="tab-pane active" id="tab_general">
+								<div class="form-body">
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button> You have some form errors. Please check below.
+									</div>
+                                    <div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button> Your form validation is successful!
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Title:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="title" value="<?php echo $data['var']['title']; ?>" maxlength="100" placeholder="Title">
+										</div>
+									</div><div class="form-group">
+									<label class="col-sm-2 control-label">Description:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="5" name="description" placeholder="Description"><?php echo $data['var']['description']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+									<label class="col-sm-2 control-label">Services:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="5" name="services" placeholder="Services"><?php echo $data['var']['services']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+										<label class="col-md-2 control-label">Stars:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="stars" value="<?php echo $data['var']['stars']; ?>" maxlength="100" placeholder="Stars">
+										</div>
+										<label class="col-md-2 control-label">Is Featured:</label>
+										<div class="col-md-4">
+											<input type="checkbox" class="make-switch" <?php echo (strtolower($data['var']['is_featured']) == 'yes' ) ? 'checked' : ''; ?> data-size="small" data-on-color="success" data-on-text="YES" data-off-color="danger" data-off-text="NO" name="is_featured" value="Yes" />
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Featured From:</label>
+										<div class="col-md-4">
+											<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+												<input type="text" class="form-control" readonly name="featured_from" id="featured_from" value="<?php echo $data['var']['featured_from']; ?>" />
+												<span class="input-group-btn">
+													<button class="btn default" type="button">
+														<i class="fa fa-calendar"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+										<label class="col-md-2 control-label">Featured To:</label>
+										<div class="col-md-4">
+											<div class="input-group date date-picker" data-date-format="dd/mm/yyyy" data-date-orientation="auto">
+												<input type="text" class="form-control" readonly name="featured_to" id="featured_to" value="<?php echo $data['var']['featured_to']; ?>" />
+												<span class="input-group-btn">
+													<button class="btn default" type="button">
+														<i class="fa fa-calendar"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Owned By:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="owned_by" value="<?php echo $data['var']['owned_by']; ?>" maxlength="100" placeholder="Owned By">
+										</div>
+										<label class="col-md-2 control-label">Type:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="type" value="<?php echo $data['var']['type']; ?>" maxlength="100" placeholder="Type">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">City:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="city" value="<?php echo $data['var']['city']; ?>" maxlength="100" placeholder="City">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Basic Price:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="basic_price" value="<?php echo $data['var']['basic_price']; ?>" maxlength="100" placeholder="Basic Price">
+										</div>
+										<label class="col-md-2 control-label">Basic Discount:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="basic_discount" value="<?php echo $data['var']['basic_discount']; ?>" maxlength="100" placeholder="Basic Discount">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Map Address:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="map_address" value="<?php echo $data['var']['map_address']; ?>" maxlength="100" placeholder="Map Address">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Map Zip:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="map_zip" value="<?php echo $data['var']['map_zip']; ?>" maxlength="100" placeholder="Map Zip">
+										</div>
+										<label class="col-md-2 control-label">Map City:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="map_city" value="<?php echo $data['var']['map_city']; ?>" maxlength="100" placeholder="Map City">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Map Country:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="map_country" value="<?php echo $data['var']['map_country']; ?>" maxlength="100" placeholder="Map Country">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Latitude:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="latitude" value="<?php echo $data['var']['latitude']; ?>" maxlength="100" placeholder="Latitude">
+										</div>
+										<label class="col-md-2 control-label">Longitude:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="longitude" value="<?php echo $data['var']['longitude']; ?>" maxlength="100" placeholder="Longitude">
+										</div>
+								</div><div class="form-group">
+									<label class="col-sm-2 control-label">Amenities:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="5" name="amenities" placeholder="Amenities"><?php echo $data['var']['amenities']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+									<label class="col-sm-2 control-label">Payment Opt:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="5" name="payment_opt" placeholder="Payment Opt"><?php echo $data['var']['payment_opt']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+										<label class="col-md-2 control-label">Adults:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="adults" value="<?php echo $data['var']['adults']; ?>" maxlength="100" placeholder="Adults">
+										</div>
+										<label class="col-md-2 control-label">Children:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="children" value="<?php echo $data['var']['children']; ?>" maxlength="100" placeholder="Children">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Check In:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="check_in" value="<?php echo $data['var']['check_in']; ?>" maxlength="100" placeholder="Check In">
+										</div>
+										<label class="col-md-2 control-label">Check Out:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="check_out" value="<?php echo $data['var']['check_out']; ?>" maxlength="100" placeholder="Check Out">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Commission Fixed:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="comm_fixed" value="<?php echo $data['var']['comm_fixed']; ?>" maxlength="100" placeholder="Comm Fixed">
+										</div>
+										<label class="col-md-2 control-label">Commission Percentage:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="comm_percentage" value="<?php echo $data['var']['comm_percentage']; ?>" maxlength="100" placeholder="Comm Percentage">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Tax Fixed:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="tax_fixed" value="<?php echo $data['var']['tax_fixed']; ?>" maxlength="100" placeholder="Tax Fixed">
+										</div>
+										<label class="col-md-2 control-label">Tax Percentage:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="tax_percentage" value="<?php echo $data['var']['tax_percentage']; ?>" maxlength="100" placeholder="Tax Percentage">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Email:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="email" value="<?php echo $data['var']['email']; ?>" maxlength="100" placeholder="Email">
+										</div>
+										<label class="col-md-2 control-label">Phone:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="phone" value="<?php echo $data['var']['phone']; ?>" maxlength="100" placeholder="Phone">
+										</div>
+								</div><div class="form-group">
+										<label class="col-md-2 control-label">Thumbnail Image:</label>
+										<div class="col-md-4">
+											<?php
+												$url = NO_IMAGE_URL;
+												$imageFound	= false;
+
+												if($data['var']['thumbnail_image'] != '' && file_exists($path.$data['var']['thumbnail_image']) && is_file($path.$data['var']['thumbnail_image'])) {
+													$url = App::getRouter()->link(UPLOAD_URL.'/'.$conroller.'/'.$data['var']['thumbnail_image']);
+													$imageFound	= true;
+												}
+											?>
+											<div class="fileinput <?php if(!$imageFound) { ?>fileinput-new<?php } ?>" data-provides="fileinput">
+												<?php
+													if(!$imageFound) {
+												?>
+													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+														<img src="<?php echo $url; ?>" alt="" width="200px" />
+													</div>
+												<?php
+													}
+												?>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><?php
+													if($imageFound) {
+												?><img src="<?php echo $url; ?>" alt="" width="200px" />
+												<?php
+													}
+												?></div>
+												<div>
+													<span class="btn btn-primary btn-file btn-flat btn-sm">
+														<span class="fileinput-new"> Select image </span>
+														<span class="fileinput-exists"> Change </span>
+														<input type="file" name="thumbnail_image"> </span>
+														<a href="javascript:;" class="btn btn-danger btn-sm btn-flat fileinput-exists" data-dismiss="fileinput"> Remove </a>
+												</div>
+											</div>
+										</div>
+
+										<label class="col-md-2 control-label">Website:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="website" value="<?php echo $data['var']['website']; ?>" maxlength="100" placeholder="Website">
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

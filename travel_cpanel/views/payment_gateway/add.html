@@ -1,0 +1,86 @@
+<?php
+	include_once(VIEWS_PATH.DS.'head.html');
+
+	$conroller	= App::getRouter()->getController();
+	$path		= UPLOAD_PATH.DS.$conroller.DS;
+?>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<form class="form-horizontal form-row-seperated ankforms" action="" method="post" enctype="multipart/form-data">
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>
+						<?php
+							if($data['var']['id'] > 0) {
+								echo 'Edit '.$data['var']['name'];
+							} else {
+								echo 'New Payment Gateway';
+							}
+						?>
+					</div>
+					<div class="actions btn-set">
+						<a href="<?php echo Router::link('payment_gateway'); ?>" name="back" class="btn btn-secondary-outline"><i class="fa fa-angle-left"></i> Back</a>
+						<button type="reset" class="btn btn-secondary-outline">
+							<i class="fa fa-reply"></i> Reset</button>
+						<button type="submit" class="btn btn-success" name="savebtn">
+							<i class="fa fa-check"></i> Save</button>
+						<button type="submit" class="btn btn-success" name="savecontbtn">
+							<i class="fa fa-check-circle"></i> Save & Continue Edit</button>
+						<?php if($data['var']['id'] > 0) { ?>
+						<a href="<?php echo Router::link('payment_gateway/delete/'.$data['var']['id']); ?>" name="Delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-trash"></i> Delete</a>
+						<?php } ?>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="tabbable-bordered">
+						<div class="tab-content">
+							<input type="hidden" name="id" value="<?php echo $data['var']['id']; ?>" />
+							<div class="tab-pane active" id="tab_general">
+								<div class="form-body">
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button> You have some form errors. Please check below.
+									</div>
+                  <div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button> Your form validation is successful!
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Name:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="name" value="<?php echo $data['var']['name']; ?>" maxlength="100" placeholder="Name">
+										</div>
+									</div><div class="form-group">
+									<label class="col-sm-2 control-label">Username:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="3" name="username" placeholder="Username"><?php echo $data['var']['username']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+									<label class="col-sm-2 control-label">Password:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="3" name="password" placeholder="Password"><?php echo $data['var']['password']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+									<label class="col-sm-2 control-label">Apikey:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="3" name="apikey" placeholder="Apikey"><?php echo $data['var']['apikey']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+									<label class="col-sm-2 control-label">Signature:</label>
+									<div class="col-sm-10">
+										<textarea class="form-control" rows="3" name="signature" placeholder="Signature"><?php echo $data['var']['signature']; ?></textarea>
+									</div>
+								</div><div class="form-group">
+										<label class="col-md-2 control-label">Test Mode:</label>
+										<div class="col-md-2">
+											<input type="checkbox" class="make-switch" <?php echo (strtolower($data['var']['testmode']) == 'yes' ) ? 'checked' : ''; ?> data-size="small" data-on-color="success" data-on-text="YES" data-off-color="danger" data-off-text="NO" name="testmode" value="Yes" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

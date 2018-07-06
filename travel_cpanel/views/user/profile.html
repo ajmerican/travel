@@ -1,0 +1,87 @@
+<?php include_once(VIEWS_PATH.DS.'head.html'); ?>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<form class="form-horizontal form-row-seperated ankforms" action="" method="post" enctype="multipart/form-data">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>
+						Edit Your Profile
+					</div>
+					<div class="actions btn-set">
+						<a href="<?php echo Router::link('dashboard'); ?>" name="back" class="btn btn-secondary-outline"><i class="fa fa-angle-left"></i> Back</a>
+						<button type="reset" class="btn btn-secondary-outline">
+							<i class="fa fa-reply"></i> Reset</button>
+						<button type="submit" class="btn btn-success" name="savebtn">
+							<i class="fa fa-check"></i> Save</button>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="tabbable-bordered">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_general" data-toggle="tab"> General </a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_general">
+								<div class="form-body">
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button> You have some form errors. Please check below.
+									</div>
+                                    <div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button> Your form validation is successful!
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Name: <span class="required"> * </span></label>
+										<div class="col-md-5">
+											<input type="text" class="form-control maxlength-handler characteronly" name="first_name" value="<?php echo $data['var']['first_name']; ?>" maxlength="100" placeholder="First Name" required >
+										</div>
+										<div class="col-md-5">
+											<input type="text" class="form-control maxlength-handler characteronly" name="last_name" value="<?php echo $data['var']['last_name']; ?>" maxlength="100" placeholder="Last Name" required >
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">User Name:</label>
+										<div class="col-md-4">
+											<span class="form-control"><?php echo $data['var']['user_name']; ?></span>
+										</div>
+										<label class="col-md-2 control-label">User Role:</label>
+										<div class="col-md-4">
+											<span class="form-control"><?php echo $data['var']['role_name']; ?></span>
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Password:</label>
+										<div class="col-md-4">
+											<input type="password" class="form-control maxlength-handler" name="password" id="password" value="" maxlength="100" placeholder="Password" autocomplete="off">
+											<span class="help-block"> Leave password field blank if you dont want to change your password. </span>
+										</div>
+										<label class="col-md-2 control-label">Confirm Password:</label>
+										<div class="col-md-4">
+											<input type="password" class="form-control maxlength-handler" name="cpassword" value="" maxlength="100" placeholder="Confirm Password">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Email:<span class="required"> * </span></label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler email" name="email" value="<?php echo $data['var']['email']; ?>" maxlength="100" placeholder="Email" id="txtEmail" required>
+											<span id="emailstatus"></span>
+										</div>
+										<label class="col-md-2 control-label">Mobile:<span class="required"> * </span></label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler onlyphone" name="mobile" value="<?php echo $data['var']['mobile']; ?>" maxlength="100" placeholder="Mobile" onclick="return ValidatePhone();" id="txtPhone" required>
+											<span id="spnPhoneStatus"></span>
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Address:<span class="required"> * </span></label>
+										<div class="col-md-10">
+											<textarea class="form-control" id="address" name="address" placeholder="Address Lines" required><?php echo $data['var']['address']; ?></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

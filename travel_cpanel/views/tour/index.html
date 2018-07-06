@@ -1,0 +1,84 @@
+<?php include_once(VIEWS_PATH.DS.'head.html'); ?>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+		<div class="portlet light ">
+			<div class="portlet-title">
+				<div class="caption font-dark">
+					<i class="icon-users font-dark"></i>
+					<span class="caption-subject bold uppercase">Tours</span>
+				</div>
+				<div class="actions">
+					<a class="btn green btn-sm" href="<?php echo Router::link('tour/add'); ?>"><i class="fa fa-plus"></i> Add New</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<?php
+					if(!isset($data['var']['records']) || count($data['var']['records']) <= 0){
+				?>
+						<div class="note note-danger">
+							<h4 class="block">Records not found</h4>
+						</div>
+				<?php
+					} else {
+				?>
+					<table class="table table-striped table-bordered table-hover table-checkable order-column dt-responsive" width="100%" id="sample_1">
+						<thead>
+							<tr>
+								<th class="min-tablet">ID</th>
+								<th class="desktop">Title</th>
+								<th class="desktop">Owned By</th>
+								<th class="desktop">Type</th>
+								<th class="desktop">Basic Price</th>
+								<th class="desktop">Days</th>
+								<th class="desktop">Nights</th>
+								<th class="desktop">Email</th>
+								<th class="desktop">Phone</th>
+								<th class="desktop">Website</th>
+								<th class="all" width="95px">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								foreach($data['var']['records'] AS $key => $val){
+								?>
+									<tr>
+										<td><?php echo $val['id']; ?></td>
+										<td><?php echo $val['title']; ?></td>
+										<td><?php echo $val['owned_by']; ?></td>
+										<td><?php echo $val['type']; ?></td>
+										<td><?php echo $val['basic_price']; ?></td>
+										<td><?php echo $val['days']; ?></td>
+										<td><?php echo $val['nights']; ?></td>
+										<td><?php echo $val['email']; ?></td>
+										<td><?php echo $val['phone']; ?></td>
+										<td><?php echo $val['website']; ?></td>
+										<td>
+											<div class="btn-group pull-right">
+												<button class="btn btn-sm green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+													<i class="fa fa-angle-down"></i>
+												</button>
+												<ul class="dropdown-menu pull-right">
+													<li>
+														<a href="<?php echo Router::link('tour/add/'.$val['id']); ?>">
+															<i class="fa fa-pencil"></i> Edit </a>
+													</li>
+													<li>
+														<a href="<?php echo Router::link('tour/delete/'.$val['id']); ?>" onclick="return confirm('Are you sure to delete?');">
+															<i class="fa fa-trash"></i> Delete </a>
+													</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								<?php
+								}
+							?>
+						</tbody>
+					</table>
+				<?php } ?>
+			</div>
+		</div>
+		<!-- END EXAMPLE TABLE PORTLET-->
+	</div>
+</div>

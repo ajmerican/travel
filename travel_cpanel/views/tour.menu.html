@@ -1,0 +1,24 @@
+<li class="nav-item<?php if(App::getRouter()->getController() == 'tour') { ?> active open<?php } ?>">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-user"></i>
+                                <span class="title">Tour</span>
+								<?php if(App::getRouter()->getController() == 'tour') { ?><span class="selected"></span><?php } ?>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+								<li class="nav-item<?php if(App::getRouter()->getController() == 'tour' && App::getRouter()->getAction() == 'index') { ?> active open<?php } ?>">
+                                    <a href="<?php echo Router::link('tour'); ?>" class="nav-link ">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Tour List</span>
+										<?php if(App::getRouter()->getController() == 'tour' && App::getRouter()->getAction() == 'index') { ?><span class="selected"></span><?php } ?>
+                                    </a>
+                                </li>
+                                <li class="nav-item<?php if(App::getRouter()->getController() == 'tour' && App::getRouter()->getAction() == 'add') { ?> active open<?php } ?>">
+                                    <a href="<?php echo Router::link('tour/add'); ?>" class="nav-link ">
+                                        <i class="icon-user"></i>
+                                        <span class="title">New Tour</span>
+										<?php if(App::getRouter()->getController() == 'tour' && App::getRouter()->getAction() == 'add') { ?><span class="selected"></span><?php } ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>

@@ -1,0 +1,283 @@
+<?php
+	include_once(VIEWS_PATH.DS.'head.html');
+
+	$conroller	= App::getRouter()->getController();
+	$path		= UPLOAD_PATH.DS.$conroller.DS;
+?>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<form class="form-horizontal form-row-seperated ankforms" action="" method="post" enctype="multipart/form-data">
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>
+						<?php
+							if($data['var']['id'] > 0) {
+								echo 'Edit Setting';
+							} else {
+								echo 'New Setting';
+							}
+						?>
+					</div>
+					<div class="actions btn-set">
+						<button type="reset" class="btn btn-secondary-outline">
+							<i class="fa fa-reply"></i> Reset</button>
+						<button type="submit" class="btn btn-success" name="savecontbtn">
+							<i class="fa fa-check-circle"></i> Save</button>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="tabbable-bordered">
+						<div class="tab-content">
+							<input type="hidden" name="id" value="<?php echo $data['var']['id']; ?>" />
+							<div class="tab-pane active" id="tab_general">
+								<div class="form-body">
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button> You have some form errors. Please check below.
+									</div>
+                                    <div class="alert alert-success display-hide">
+										<button class="close" data-close="alert"></button> Your form validation is successful!
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Site Title:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="site_title" value="<?php echo $data['var']['site_title']; ?>" maxlength="100" placeholder="Site Title">
+										</div>
+										<label class="col-md-2 control-label">Home Title:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="home_title" value="<?php echo $data['var']['home_title']; ?>" maxlength="100" placeholder="Home Title">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Site Name:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="site_name" value="<?php echo $data['var']['site_name']; ?>" maxlength="100" placeholder="Site Name">
+										</div>
+										<label class="col-md-2 control-label">Tag Line:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="tag_line" value="<?php echo $data['var']['tag_line']; ?>" maxlength="100" placeholder="Tag Line">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Site Url:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="site_url" value="<?php echo $data['var']['site_url']; ?>" maxlength="100" placeholder="Site Url">
+										</div>
+										<label class="col-md-2 control-label">Ssl Url:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="ssl_url" value="<?php echo $data['var']['ssl_url']; ?>" maxlength="100" placeholder="Ssl Url">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Header Logo Img:</label>
+										<div class="col-md-4">
+											<?php
+												$url = NO_IMAGE_URL;
+												$imageFound	= false;
+
+												if($data['var']['header_logo_img'] != '' && file_exists($path.$data['var']['header_logo_img']) && is_file($path.$data['var']['header_logo_img'])) {
+													$url = App::getRouter()->link(UPLOAD_URL.'/'.$conroller.'/'.$data['var']['header_logo_img']);
+													$imageFound	= true;
+												}
+											?>
+											<div class="fileinput <?php if(!$imageFound) { ?>fileinput-new<?php } ?>" data-provides="fileinput">
+												<?php
+													if(!$imageFound) {
+												?>
+													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+														<img src="<?php echo $url; ?>" alt="" width="200px" />
+													</div>
+												<?php
+													}
+												?>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><?php
+													if($imageFound) {
+												?><img src="<?php echo $url; ?>" alt="" width="200px" />
+												<?php
+													}
+												?></div>
+												<div>
+													<span class="btn btn-primary btn-file btn-flat btn-sm">
+														<span class="fileinput-new"> Select image </span>
+														<span class="fileinput-exists"> Change </span>
+														<input type="file" name="header_logo_img"> </span>
+														<a href="javascript:;" class="btn btn-danger btn-sm btn-flat fileinput-exists" data-dismiss="fileinput"> Remove </a>
+												</div>
+											</div>
+										</div>
+										<label class="col-md-2 control-label">Footer Logo Img:</label>
+										<div class="col-md-4">
+											<?php
+												$url = NO_IMAGE_URL;
+												$imageFound	= false;
+
+												if($data['var']['footer_logo_img'] != '' && file_exists($path.$data['var']['footer_logo_img']) && is_file($path.$data['var']['footer_logo_img'])) {
+													$url = App::getRouter()->link(UPLOAD_URL.'/'.$conroller.'/'.$data['var']['footer_logo_img']);
+													$imageFound	= true;
+												}
+											?>
+											<div class="fileinput <?php if(!$imageFound) { ?>fileinput-new<?php } ?>" data-provides="fileinput">
+												<?php
+													if(!$imageFound) {
+												?>
+													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+														<img src="<?php echo $url; ?>" alt="" width="200px" />
+													</div>
+												<?php
+													}
+												?>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><?php
+													if($imageFound) {
+												?><img src="<?php echo $url; ?>" alt="" width="200px" />
+												<?php
+													}
+												?></div>
+												<div>
+													<span class="btn btn-primary btn-file btn-flat btn-sm">
+														<span class="fileinput-new"> Select image </span>
+														<span class="fileinput-exists"> Change </span>
+														<input type="file" name="footer_logo_img"> </span>
+														<a href="javascript:;" class="btn btn-danger btn-sm btn-flat fileinput-exists" data-dismiss="fileinput"> Remove </a>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Favicon Img:</label>
+										<div class="col-md-4">
+											<?php
+												$url = NO_IMAGE_URL;
+												$imageFound	= false;
+
+												if($data['var']['favicon_img'] != '' && file_exists($path.$data['var']['favicon_img']) && is_file($path.$data['var']['favicon_img'])) {
+													$url = App::getRouter()->link(UPLOAD_URL.'/'.$conroller.'/'.$data['var']['favicon_img']);
+													$imageFound	= true;
+												}
+											?>
+											<div class="fileinput <?php if(!$imageFound) { ?>fileinput-new<?php } ?>" data-provides="fileinput">
+												<?php
+													if(!$imageFound) {
+												?>
+													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+														<img src="<?php echo $url; ?>" alt="" width="200px" />
+													</div>
+												<?php
+													}
+												?>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><?php
+													if($imageFound) {
+												?><img src="<?php echo $url; ?>" alt="" width="200px" />
+												<?php
+													}
+												?></div>
+												<div>
+													<span class="btn btn-primary btn-file btn-flat btn-sm">
+														<span class="fileinput-new"> Select image </span>
+														<span class="fileinput-exists"> Change </span>
+														<input type="file" name="favicon_img"> </span>
+														<a href="javascript:;" class="btn btn-danger btn-sm btn-flat fileinput-exists" data-dismiss="fileinput"> Remove </a>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Address:</label>
+										<div class="col-md-10">
+											<textarea class="form-control" rows="5" name="address" placeholder="Address"><?php echo $data['var']['address']; ?></textarea>
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Phone:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="phone" value="<?php echo $data['var']['phone']; ?>" maxlength="100" placeholder="Phone">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Copyright:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="copyright" value="<?php echo $data['var']['copyright']; ?>" maxlength="100" placeholder="Copyright">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Keywords:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="keywords" value="<?php echo $data['var']['keywords']; ?>" maxlength="100" placeholder="Keywords">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Meta Description:</label>
+										<div class="col-md-10">
+											<textarea class="form-control" rows="5" name="meta_description" placeholder="Meta Description"><?php echo $data['var']['meta_description']; ?></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Currency Sign:</label>
+										<div class="col-md-2">
+											<input type="text" class="form-control maxlength-handler" name="currency_sign" value="<?php echo $data['var']['currency_sign']; ?>" maxlength="100" placeholder="Currency Sign">
+										</div>
+										<label class="col-md-2 control-label">Currency Code:</label>
+										<div class="col-md-2">
+											<input type="text" class="form-control maxlength-handler" name="currency_code" value="<?php echo $data['var']['currency_code']; ?>" maxlength="100" placeholder="Currency Code">
+										</div>
+										<label class="col-md-2 control-label">Default Lang:</label>
+										<div class="col-md-2">
+											<input type="text" class="form-control maxlength-handler" name="default_lang" value="<?php echo $data['var']['default_lang']; ?>" maxlength="100" placeholder="Default Lang">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Google Map Api Key:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="mapApi" value="<?php echo $data['var']['mapApi']; ?>" maxlength="100" placeholder="MapApi">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Date Format:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control" name="date_f" id="date_f" value="<?php echo $data['var']['date_f']; ?>" />
+										</div>
+										<label class="col-md-2 control-label">Date Format For Js:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control" name="date_f_js" id="date_f_js" value="<?php echo $data['var']['date_f_js']; ?>" />
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Site Offline:</label>
+										<div class="col-md-1">
+											<select name="site_offline">
+												<option value="0">No</option>
+												<option value="1" <?php echo (isset($data['var']['site_offline']) && strtolower($data['var']['site_offline']) == '1') ? 'selected="selected"' : ''; ?>>Yes</option>
+											</select>
+										</div>
+										<label class="col-md-2 control-label">Offline Message:</label>
+										<div class="col-md-7">
+											<input type="text" class="form-control maxlength-handler" name="offline_message" value="<?php echo $data['var']['offline_message']; ?>" maxlength="100" placeholder="Offline Message">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Booking Expiry:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="booking_expiry" value="<?php echo $data['var']['booking_expiry']; ?>" maxlength="100" placeholder="Booking Expiry">
+										</div>
+										<label class="col-md-2 control-label">Booking Cancellation:</label>
+										<div class="col-md-4">
+											<input type="text" class="form-control maxlength-handler" name="booking_cancellation" value="<?php echo $data['var']['booking_cancellation']; ?>" maxlength="100" placeholder="Booking Cancellation">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Default Gateway:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="default_gateway" value="<?php echo $data['var']['default_gateway']; ?>" maxlength="100" placeholder="Default Gateway">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Searchbox:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="searchbox" value="<?php echo $data['var']['searchbox']; ?>" maxlength="100" placeholder="Searchbox">
+										</div>
+									</div><div class="form-group">
+										<label class="col-md-2 control-label">Rss:</label>
+										<div class="col-md-10">
+											<input type="text" class="form-control maxlength-handler" name="rss" value="<?php echo $data['var']['rss']; ?>" maxlength="100" placeholder="Rss">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

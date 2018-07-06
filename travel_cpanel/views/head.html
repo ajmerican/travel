@@ -1,0 +1,42 @@
+<!-- BEGIN PAGE HEAD-->
+<div class="page-head">
+		<!-- BEGIN PAGE TITLE -->
+		<div class="page-title">
+				<h1><?php echo $data['title']; ?>
+						<small><?php
+							if(array_key_exists('sub-title', $data)) {
+								echo $data['sub-title'];
+							}
+							?></small>
+				</h1>
+		</div>
+		<!-- END PAGE TITLE -->
+</div>
+<!-- END PAGE HEAD-->
+<!-- BEGIN PAGE BREADCRUMB -->
+<ul class="page-breadcrumb breadcrumb">
+	<li>
+			<a href="<?php echo Config::get('base_dir'); ?>">Home</a>
+			<i class="fa fa-dashboard"></i>
+	</li>
+	<?php
+		if(isset($data['breadcrumb']) && count($data['breadcrumb']) > 0){
+			foreach($data['breadcrumb'] AS $key => $val){
+				if($key != ''){
+	?>
+					<li><a href="<?php echo $key; ?>"><?php echo $val; ?></a></li>
+				<?php } else { ?>
+					<li><?php echo $val; ?></li>
+	<?php
+				}
+			}
+		}
+	?>
+	<li>
+			<span class="active"><?php echo $data['title']; ?></span>
+	</li>
+</ul>
+<!-- END PAGE BREADCRUMB -->
+<!-- BEGIN PAGE BASE CONTENT -->
+<?php if(Session::hasFlash()) { Session::flash(); } ?>
+<?php echo Session::getMessage(); ?>
