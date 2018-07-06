@@ -1,0 +1,19 @@
+label.error {
+    color: #dd4b39;
+    font-weight: 400;
+}
+.has-feedback .form-control.error {
+    border-color: #dd4b39;
+    box-shadow: none;
+}
+.forgot-form{display: none;}
+.btn .fa {
+  padding-right:5px;
+}
+.btn.btn-sm{
+  font-weight: bold;
+}
+.callout {
+    margin: 20px 0;
+    border-radius: 0;
+}

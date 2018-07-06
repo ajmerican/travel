@@ -1,0 +1,29 @@
+[11-Jun-2018 08:37:49 UTC] PHP Fatal error:  Uncaught Exception: Faild to include class: SettingController in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/init.php:17
+Stack trace:
+#0 [internal function]: init_autoload('SettingControll...')
+#1 /home/kachiyai/dev.synex.tech/travel_cpanel/lib/app.class.php(34): spl_autoload_call('SettingControll...')
+#2 /home/kachiyai/dev.synex.tech/travel_cpanel/webroot/index.php(13): App::run('/travel_cpanel/...')
+#3 {main}
+  thrown in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/init.php on line 17
+[11-Jun-2018 12:58:47 UTC] PHP Fatal error:  Uncaught Exception: Table 'kachiyai_travel.settings' doesn't exist in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/db.class.php:21
+Stack trace:
+#0 /home/kachiyai/dev.synex.tech/travel_cpanel/models/setting.model.php(18): DB->query('SELECT * FROM `...')
+#1 /home/kachiyai/dev.synex.tech/travel_cpanel/controllers/setting.controller.php(45): SettingModel->getById(1)
+#2 /home/kachiyai/dev.synex.tech/travel_cpanel/lib/app.class.php(38): SettingController->add()
+#3 /home/kachiyai/dev.synex.tech/travel_cpanel/webroot/index.php(13): App::run('/travel_cpanel/...')
+#4 {main}
+  thrown in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/db.class.php on line 21
+[14-Jun-2018 14:12:42 UTC] PHP Fatal error:  Uncaught Exception: Faild to include class: NewslatterController in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/init.php:17
+Stack trace:
+#0 [internal function]: init_autoload('NewslatterContr...')
+#1 /home/kachiyai/dev.synex.tech/travel_cpanel/lib/app.class.php(34): spl_autoload_call('NewslatterContr...')
+#2 /home/kachiyai/dev.synex.tech/travel_cpanel/webroot/index.php(13): App::run('/travel_cpanel/...')
+#3 {main}
+  thrown in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/init.php on line 17
+[14-Jun-2018 14:14:29 UTC] PHP Fatal error:  Uncaught Exception: Faild to include class: NewslatterController in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/init.php:17
+Stack trace:
+#0 [internal function]: init_autoload('NewslatterContr...')
+#1 /home/kachiyai/dev.synex.tech/travel_cpanel/lib/app.class.php(34): spl_autoload_call('NewslatterContr...')
+#2 /home/kachiyai/dev.synex.tech/travel_cpanel/webroot/index.php(13): App::run('/travel_cpanel/...')
+#3 {main}
+  thrown in /home/kachiyai/dev.synex.tech/travel_cpanel/lib/init.php on line 17
