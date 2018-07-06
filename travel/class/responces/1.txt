@@ -1,0 +1,213 @@
+First responce
+Array
+(
+    [OriginLocation] => LAX
+    [DestinationLocation] => NYC
+    [FareInfo] => Array
+        (
+            [0] => Array
+                (
+                    [LowestFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 256.41
+                        )
+
+                    [CurrencyCode] => USD
+                    [LowestNonStopFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 256.41
+                        )
+
+                    [DepartureDateTime] => 2018-04-25T00:00:00
+                    [ReturnDateTime] => 2018-04-28T00:00:00
+                    [Links] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [rel] => shop
+                                    [href] => https://api.test.sabre.com/v1/shop/flights?origin=LAX&destination=NYC&departuredate=2018-04-25&returndate=2018-04-28&pointofsalecountry=US
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [LowestFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 256.41
+                        )
+
+                    [CurrencyCode] => USD
+                    [LowestNonStopFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 256.41
+                        )
+
+                    [DepartureDateTime] => 2018-04-25T00:00:00
+                    [ReturnDateTime] => 2018-04-29T00:00:00
+                    [Links] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [rel] => shop
+                                    [href] => https://api.test.sabre.com/v1/shop/flights?origin=LAX&destination=NYC&departuredate=2018-04-25&returndate=2018-04-29&pointofsalecountry=US
+                                )
+
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [LowestFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 256.41
+                        )
+
+                    [CurrencyCode] => USD
+                    [LowestNonStopFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 256.41
+                        )
+
+                    [DepartureDateTime] => 2018-04-25T00:00:00
+                    [ReturnDateTime] => 2018-04-30T00:00:00
+                    [Links] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [rel] => shop
+                                    [href] => https://api.test.sabre.com/v1/shop/flights?origin=LAX&destination=NYC&departuredate=2018-04-25&returndate=2018-04-30&pointofsalecountry=US
+                                )
+
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [LowestFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => SY
+                                    [1] => AS
+                                )
+
+                            [Fare] => 256.69
+                        )
+
+                    [CurrencyCode] => USD
+                    [LowestNonStopFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 276.4
+                        )
+
+                    [DepartureDateTime] => 2018-04-25T00:00:00
+                    [ReturnDateTime] => 2018-05-01T00:00:00
+                    [Links] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [rel] => shop
+                                    [href] => https://api.test.sabre.com/v1/shop/flights?origin=LAX&destination=NYC&departuredate=2018-04-25&returndate=2018-05-01&pointofsalecountry=US
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [LowestFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                    [1] => SY
+                                )
+
+                            [Fare] => 237
+                        )
+
+                    [CurrencyCode] => USD
+                    [LowestNonStopFare] => Array
+                        (
+                            [AirlineCodes] => Array
+                                (
+                                    [0] => AS
+                                )
+
+                            [Fare] => 271.4
+                        )
+
+                    [DepartureDateTime] => 2018-04-25T00:00:00
+                    [ReturnDateTime] => 2018-05-02T00:00:00
+                    [Links] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [rel] => shop
+                                    [href] => https://api.test.sabre.com/v1/shop/flights?origin=LAX&destination=NYC&departuredate=2018-04-25&returndate=2018-05-02&pointofsalecountry=US
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [Links] => Array
+        (
+            [0] => Array
+                (
+                    [rel] => self
+                    [href] => https://api.test.sabre.com/v2/shop/flights/fares?origin=LAX&destination=NYC&departuredate=2018-04-25&lengthofstay=3%2C4%2C5%2C6%2C7
+                )
+
+            [1] => Array
+                (
+                    [rel] => linkTemplate
+                    [href] => https://api.test.sabre.com/v2/shop/flights/fares?origin=&destination=&lengthofstay=&departuredate=&minfare=&maxfare=&pointofsalecountry=
+                )
+
+        )
+
+)
