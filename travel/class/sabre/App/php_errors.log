@@ -1,0 +1,76 @@
+[12-Apr-2018 20:36:30 Asia/Calcutta] <url> malformed
+[12-Apr-2018 20:36:30 Asia/Calcutta] PHP Fatal error:  Uncaught Httpful\Exception\ConnectionErrorException: Unable to connect: 3 <url> malformed in /var/www/html/travel/class/sabre/App/vendor/nategood/httpful/src/Httpful/Request.php:207
+Stack trace:
+#0 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(103): Httpful\Request->send()
+#1 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(91): cometari\SabreAPI->getToken('Og==')
+#2 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(71): cometari\SabreAPI->updateToken('Og==', Object(FileDB))
+#3 /var/www/html/travel/class/sabre/App/index.php(9): cometari\SabreAPI->get('/travel/class/s...')
+#4 {main}
+  thrown in /var/www/html/travel/class/sabre/App/vendor/nategood/httpful/src/Httpful/Request.php on line 207
+[12-Apr-2018 20:39:17 Asia/Calcutta] <url> malformed
+[12-Apr-2018 20:39:17 Asia/Calcutta] PHP Fatal error:  Uncaught Httpful\Exception\ConnectionErrorException: Unable to connect: 3 <url> malformed in /var/www/html/travel/class/sabre/App/vendor/nategood/httpful/src/Httpful/Request.php:207
+Stack trace:
+#0 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(103): Httpful\Request->send()
+#1 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(91): cometari\SabreAPI->getToken('Og==')
+#2 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(71): cometari\SabreAPI->updateToken('Og==', Object(FileDB))
+#3 /var/www/html/travel/class/sabre/App/index.php(9): cometari\SabreAPI->get('/travel/class/s...')
+#4 {main}
+  thrown in /var/www/html/travel/class/sabre/App/vendor/nategood/httpful/src/Httpful/Request.php on line 207
+[12-Apr-2018 20:39:19 Asia/Calcutta] <url> malformed
+[12-Apr-2018 20:39:19 Asia/Calcutta] PHP Fatal error:  Uncaught Httpful\Exception\ConnectionErrorException: Unable to connect: 3 <url> malformed in /var/www/html/travel/class/sabre/App/vendor/nategood/httpful/src/Httpful/Request.php:207
+Stack trace:
+#0 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(103): Httpful\Request->send()
+#1 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(91): cometari\SabreAPI->getToken('Og==')
+#2 /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php(71): cometari\SabreAPI->updateToken('Og==', Object(FileDB))
+#3 /var/www/html/travel/class/sabre/App/index.php(9): cometari\SabreAPI->get('/travel/class/s...')
+#4 {main}
+  thrown in /var/www/html/travel/class/sabre/App/vendor/nategood/httpful/src/Httpful/Request.php on line 207
+[12-Apr-2018 20:41:01 Asia/Calcutta] PHP Notice:  Use of undefined constant API_URL_KEY - assumed 'API_URL_KEY' in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 60
+[13-Apr-2018 14:49:54 Asia/Calcutta] PHP Warning:  file_get_contents(../../db/main.db): failed to open stream: No such file or directory in /var/www/html/travel/class/sabre/App/vendor/cometari/filedb.php on line 79
+[13-Apr-2018 15:24:58 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cometari\SabreAPI::get(), 0 passed in /var/www/html/travel/class/sabre/App/index.php on line 10 and exactly 1 expected in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php:69
+Stack trace:
+#0 /var/www/html/travel/class/sabre/App/index.php(10): cometari\SabreAPI->get()
+#1 {main}
+  thrown in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 69
+[13-Apr-2018 15:41:02 Asia/Calcutta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/travel/class/sabre/App/index.php:11) in /var/www/html/travel/class/sabre/App/index.php on line 16
+[13-Apr-2018 15:41:02 Asia/Calcutta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/travel/class/sabre/App/index.php:11) in /var/www/html/travel/class/sabre/App/index.php on line 17
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:25:22 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:27:41 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 136
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:28:45 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 138
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135
+[14-Apr-2018 18:33:10 Asia/Calcutta] PHP Notice:  Array to string conversion in /var/www/html/travel/class/sabre/App/vendor/cometari/sabreapi.php on line 135

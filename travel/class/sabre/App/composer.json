@@ -1,0 +1,16 @@
+{
+    "name": "vendor_name/package_name",
+    "description": "inspy me",
+    "minimum-stability": "dev",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Cometari",
+            "email": "info@cometari.com"
+        }
+    ],
+
+    "require" : {
+        "nategood/httpful": "*"
+    }
+}
